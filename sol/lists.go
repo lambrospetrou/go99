@@ -31,3 +31,31 @@ func P03(l []int, n int) (int, error) {
 	}
 	return l[n], nil
 }
+
+// P04 returns the length of a list
+func P04(l []int) int {
+	return len(l)
+}
+
+// P05 reverses a list and returns a new copy of the reversed
+func P05(l []int) []int {
+	if l == nil {
+		return nil
+	}
+	rev := make([]int, len(l))
+	revIdx := len(l) - 1
+	for _, v := range l {
+		rev[revIdx] = v
+		revIdx -= 1
+	}
+	return rev
+}
+
+// P05_1 reverses the list in place
+func P05_1(l []int) []int {
+	length := len(l) - 1
+	for i := 0; i < length/2; i++ {
+		l[i], l[length-i] = l[length-i], l[i]
+	}
+	return l
+}

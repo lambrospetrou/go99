@@ -1,6 +1,7 @@
 package sol_test
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 
@@ -45,5 +46,52 @@ func Test03(t *testing.T) {
 
 	if _, err := sol.P03([]int{1, 2, 3, 4}, -1); err == nil {
 		t.Error("Expected err, got nil err")
+	}
+}
+
+func Test04(t *testing.T) {
+	l := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 33, 11, -9}
+	if sol.P04(l) != 13 {
+		t.Error("Expected 13, got ", sol.P04(l))
+	}
+
+	if sol.P04([]int{}) != 0 {
+		t.Error("Expected 0, got ", sol.P04([]int{}))
+	}
+
+	if sol.P04(nil) != 0 {
+		t.Error("Expected 0, got ", sol.P04(nil))
+	}
+}
+
+func Test05(t *testing.T) {
+	l := []int{1, 2, 3, 4, 5, 11, -9}
+	lrev := []int{-9, 11, 5, 4, 3, 2, 1}
+	if !reflect.DeepEqual(lrev, sol.P05(l)) {
+		t.Error(fmt.Sprintf("Expected %v, got %v", lrev, sol.P05(l)))
+	}
+
+	if !reflect.DeepEqual([]int{}, sol.P05([]int{})) {
+		t.Error(fmt.Sprintf("Expected %v, got %v", []int{}, sol.P05([]int{})))
+	}
+
+	if len(sol.P05(nil)) != 0 {
+		t.Error(fmt.Sprintf("Expected len 0, got %v", len(sol.P05(nil))))
+	}
+}
+
+func Test05_1(t *testing.T) {
+	l := []int{1, 2, 3, 4, 5, 11, -9}
+	lrev := []int{-9, 11, 5, 4, 3, 2, 1}
+	if !reflect.DeepEqual(lrev, sol.P05_1(l)) {
+		t.Error(fmt.Sprintf("Expected %v, got %v", lrev, sol.P05_1(l)))
+	}
+
+	if !reflect.DeepEqual([]int{}, sol.P05_1([]int{})) {
+		t.Error(fmt.Sprintf("Expected %v, got %v", []int{}, sol.P05_1([]int{})))
+	}
+
+	if len(sol.P05_1(nil)) != 0 {
+		t.Error(fmt.Sprintf("Expected len 0, got %v", len(sol.P05_1(nil))))
 	}
 }
