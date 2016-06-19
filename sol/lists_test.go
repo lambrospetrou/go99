@@ -32,3 +32,18 @@ func Test02(t *testing.T) {
 		t.Error("Expected err with nil list, got nil err")
 	}
 }
+
+func Test03(t *testing.T) {
+	l := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 22, 33, 11, -9}
+	if res, _ := sol.P03(l, 3); res != 4 {
+		t.Error("Expected 4, got ", res)
+	}
+
+	if _, err := sol.P03([]int{}, 1); err == nil {
+		t.Error("Expected err, got nil err")
+	}
+
+	if _, err := sol.P03([]int{1, 2, 3, 4}, -1); err == nil {
+		t.Error("Expected err, got nil err")
+	}
+}
