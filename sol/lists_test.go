@@ -95,3 +95,32 @@ func Test05_1(t *testing.T) {
 		t.Error(fmt.Sprintf("Expected len 0, got %v", len(sol.P05_1(nil))))
 	}
 }
+
+func Test06(t *testing.T) {
+	lyes := []int{1, 2, 3, 4, 3, 2, 1}
+	lno := []int{-9, 11, 5, 4, 3, 2, 1}
+
+	if !sol.P06(lyes) {
+		t.Error(fmt.Sprintf("Expected %v, to be true", lyes))
+	}
+
+	if !sol.P06([]int{4}) {
+		t.Error(fmt.Sprintf("Expected single element to be true"))
+	}
+
+	if !sol.P06([]int{4, 5, 5, 4}) {
+		t.Error(fmt.Sprintf("Expected even length list to be true"))
+	}
+
+	if sol.P06(lno) {
+		t.Error(fmt.Sprintf("Expected %v, to be false", lno))
+	}
+
+	if !sol.P06([]int{}) {
+		t.Error(fmt.Sprintf("Expected empty list to be true"))
+	}
+
+	if !sol.P06(nil) {
+		t.Error(fmt.Sprintf("Expected nil to be true"))
+	}
+}

@@ -59,3 +59,14 @@ func P05_1(l []int) []int {
 	}
 	return l
 }
+
+// P06 checks to see if the given list is a palindrome
+func P06(l []int) bool {
+	length := len(l)
+	for i, stop := 0, length/2; i < stop; i++ {
+		if l[i] != l[length-1-i] {
+			return false
+		}
+	}
+	return true
+}
